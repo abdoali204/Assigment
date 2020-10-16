@@ -43,15 +43,16 @@ namespace Assigment
 
         protected void DateTo_SelectionChanged(object sender, EventArgs e)
         {
-            CompareAfterFromDateValidator.ValueToCompare = vacation.VacationDateFrom.ToShortDateString();
-            DateTime returningDate = vacationRepo.CalcReturingDay(Convert.ToDateTime(DateTo.Text));
-            lblReturning.Text = returningDate.DayOfWeek + "  " + returningDate.ToShortDateString();
-            lblTotalDaysNumber.Text = vacationRepo.CalcTotalRequestedDays(Convert.ToDateTime(DateFrom.Text), Convert.ToDateTime(DateTo.Text)).ToString();
+            if (CompareAfterFromDateValidator.IsValid && DateFrom.Text.Length >6 && CompareEndTodayValidator.IsValid)
+            {
+                DateTime returningDate = vacationRepo.CalcReturingDay(Convert.ToDateTime(DateTo.Text));
+                lblReturning.Text = returningDate.DayOfWeek + "  " + returningDate.ToShortDateString();
+                lblTotalDaysNumber.Text = vacationRepo.CalcTotalRequestedDays(Convert.ToDateTime(DateFrom.Text), Convert.ToDateTime(DateTo.Text)).ToString();
+            }
         }
 
         protected void DateFrom_TextChanged(object sender, EventArgs e)
         {
-            CompareAfterFromDateValidator.ValueToCompare = Convert.ToDateTime(DateTo.Text).ToShortDateString();
         }
     }
 }

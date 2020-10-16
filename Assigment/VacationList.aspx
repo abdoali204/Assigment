@@ -1,20 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VacationList.aspx.cs" Inherits="Assigment.VacationList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="margin-top:35px; margin-left: 40px;">
-        <asp:GridView ID="gvVacationList" runat="server" AutoGenerateColumns="False" CellPadding="10" CellSpacing="7" DataKeyNames="Id" DataSourceID="VacationOSD" ForeColor="#333333" GridLines="None" AllowPaging="True">
+        <asp:GridView ID="gvVacationList" runat="server" AutoGenerateColumns="False" CellPadding="30" CellSpacing="20" DataSourceID="VacationOSD" ForeColor="#333333" GridLines="None" AllowPaging="True" DataKeyNames="Id">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                <asp:BoundField DataField="Id" HeaderText="#" SortExpression="Id" />
                 <asp:BoundField DataField="SubmissionDate" HeaderText="SubmissionDate" SortExpression="SubmissionDate" />
                 <asp:BoundField DataField="EmployeeName" HeaderText="EmployeeName" SortExpression="EmployeeName" />
-                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                <asp:BoundField DataField="VacationDateFrom" HeaderText="VacationDateFrom" SortExpression="VacationDateFrom" />
-                <asp:BoundField DataField="VacationDateTo" HeaderText="VacationDateTo" SortExpression="VacationDateTo" />
-                <asp:BoundField DataField="Notes" HeaderText="Notes" SortExpression="Notes" />
-                <asp:BoundField DataField="DepartmentId" HeaderText="DepartmentId" SortExpression="DepartmentId" />
-                <asp:BoundField DataField="Returning" HeaderText="Returning" SortExpression="Returning" />
-                <asp:BoundField DataField="TotalNumberOfDaysRequested" HeaderText="TotalNumberOfDaysRequested" SortExpression="TotalNumberOfDaysRequested" />
-                <asp:CommandField ShowSelectButton="True" SelectText="Details" />
+                <asp:BoundField DataField="VacationDateFrom" HeaderText="From" SortExpression="VacationDateFrom" />
+                <asp:BoundField DataField="VacationDateTo" HeaderText="To" SortExpression="VacationDateTo" />
+                <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
+                <asp:CommandField SelectText="Details" ShowSelectButton="True" />
             </Columns>
             <EditRowStyle BackColor="#7C6F57" />
             <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -27,6 +23,7 @@
             <SortedDescendingCellStyle BackColor="#D4DFE1" />
             <SortedDescendingHeaderStyle BackColor="#15524A" />
         </asp:GridView>
+        <asp:ObjectDataSource ID="VacationsOSD" runat="server"></asp:ObjectDataSource>
         <asp:ObjectDataSource ID="VacationOSD" runat="server" SelectMethod="GetVacations" TypeName="Assigment.DAL.VacationRepository"></asp:ObjectDataSource>
     </div>
     <div style="margin-top:35px; margin-left:35px;">

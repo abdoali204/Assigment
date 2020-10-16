@@ -21,11 +21,21 @@ namespace Assigment.DAL
             }
             return vacationDTO;
         }
-        public List<Vacation> GetVacations()
+        public List<VacationDTOForGet> GetVacations()
         {
+            var vacationsDTO = new List<VacationDTOForGet>();
             using(var context = new VacationEntities())
             {
-                return context.Vacations.ToList();
+                var vacations= context.Vacations.ToList();
+                vacations.ForEach(v =>
+                {
+                    v.SubmissionDate = Convert.ToDateTime(v.SubmissionDate.ToShortDateString());
+                    v.VacationDateFrom = Convert.ToDateTime(v.VacationDateFrom.ToShortDateString());
+                    v.VacationDateTo = Convert.ToDateTime(v.VacationDateTo.ToShortDateString());
+                    v.Returning = Convert.ToDateTime(v.Returning.ToShortDateString());
+                    vacationsDTO.Add(Mapping(v));
+                 });
+                return vacationsDTO;
             }
         }
         public void Add(Vacation vacation)

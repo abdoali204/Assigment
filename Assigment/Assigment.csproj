@@ -239,7 +239,6 @@
     <Content Include="Site.Master" />
     <Content Include="VacationForm.aspx" />
     <Content Include="VacationList.aspx" />
-    <Content Include="VacationsList.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -433,13 +432,6 @@
     </Compile>
     <Compile Include="VacationList.aspx.designer.cs">
       <DependentUpon>VacationList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="VacationsList.aspx.cs">
-      <DependentUpon>VacationsList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VacationsList.aspx.designer.cs">
-      <DependentUpon>VacationsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

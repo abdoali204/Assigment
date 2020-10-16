@@ -35,7 +35,7 @@
       </div> 
         <div class="form-group">
             <asp:Label ID="lblDateFrom" runat="server" Text="Vacation Date From:"></asp:Label>
-            <asp:TextBox ID="DateFrom" runat="server" placeholder="mm/dd/yyyy" CssClass="form-control" OnTextChanged="DateFrom_TextChanged">
+            <asp:TextBox ID="DateFrom"  runat="server" placeholder="mm/dd/yyyy" CssClass="form-control" OnTextChanged="DateFrom_TextChanged">
             </asp:TextBox>
 
             <asp:CompareValidator 
@@ -56,15 +56,15 @@
        </div>
       <div class="form-group">
             <asp:Label ID="lblDateTo" runat="server" Text="Vacation Date To:"></asp:Label>
-            <asp:TextBox ID="DateTo" runat="server" placeholder="mm/dd/yyyy" CssClass="form-control" OnTextChanged="DateTo_SelectionChanged"></asp:TextBox>
+            <asp:TextBox ID="DateTo" runat="server" placeholder="mm/dd/yyyy" CssClass="form-control"  AutoPostBack="true" OnTextChanged="DateTo_SelectionChanged"></asp:TextBox>
         
             <asp:CompareValidator 
                 ID="CompareAfterFromDateValidator"
                 Operator="GreaterThan"
-                type="String"
+                type="Date"
                 ControltoValidate="DateTo"
                 ErrorMessage="The 'Date To' must be after From Date"
-                runat="server" CssClass="text-danger" Font-Bold="True" />
+                runat="server" CssClass="text-danger" Font-Bold="True" ControlToCompare="DateFrom" />
 
           <asp:CompareValidator 
                 ID="CompareValidator1"
